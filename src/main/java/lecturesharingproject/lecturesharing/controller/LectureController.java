@@ -18,6 +18,5 @@ public class LectureController {
     @GetMapping(value = "/lectures")
     public List<Lecture> getLectures(){
         return this.lectureService.getLectures();
-//qwe
     }
 }
