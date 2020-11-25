@@ -6,12 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class LectureService {
+public class LectureService implements ILectureService {
 
     @Autowired
-    private LectureDao lecturedao;
+    private LectureDao lectureDao;
 
-    public List<Lecture> getLectures(){
-        return lecturedao.findAll();
+    @Override
+    public Lecture insertLecture(Lecture lecture) {
+        return lectureDao.save(lecture);
+    }
+
+    @Override
+    public List<Lecture> getAllLectures() {
+        return lectureDao.findAll();
+    }
+
+    @Override
+    public Lecture getLecture(int id) {
+        return lectureDao.findById(id).orElseThrow(() -> new RuntimeException("Error"));
+    }
+
+    @Override
+    public void removeLecture(int id) {
+        lectureDao.deleteById(id);
     }
 }
