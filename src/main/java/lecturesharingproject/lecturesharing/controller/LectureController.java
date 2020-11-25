@@ -2,6 +2,7 @@ package lecturesharingproject.lecturesharing.controller;
 
 import lecturesharingproject.lecturesharing.entity.Lecture;
 import lecturesharingproject.lecturesharing.service.LectureService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.List;
 
+@RestController
+@RequestMapping("/lectures")
+@Slf4j
 public class LectureController {
 
     @Autowired
