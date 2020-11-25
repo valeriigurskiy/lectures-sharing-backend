@@ -15,5 +15,6 @@ public class Lecture {
     private LessonName lessonName;
     private String title;
     private String lessonDescription;
+}
 
 
