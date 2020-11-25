@@ -2,10 +2,13 @@ package lecturesharingproject.lecturesharing.service;
 
 import lecturesharingproject.lecturesharing.dao.LectureDao;
 import lecturesharingproject.lecturesharing.entity.Lecture;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@Slf4j
 public class LectureService implements ILectureService {
 
     @Autowired
