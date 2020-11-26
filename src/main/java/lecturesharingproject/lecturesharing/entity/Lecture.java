@@ -16,7 +16,6 @@ public class Lecture {
     private int id;
     @Column(nullable = false, length = 16)
     private LessonName lessonName;
-    //    private String lessonName;
     @Column(nullable = false, length = 32)
     private String title;
     @Column(nullable = false, length = 64)

@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 @Slf4j
-//@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired
@@ -30,7 +30,7 @@ public class UserController {
 
     @PostMapping
     public User insertUser(@RequestBody User user){
-        User newUser = new User(user.getId(), user.getLogin(),user.getName(),user.getLastname(), user.getAge(), user.getRole());
+        User newUser = new User(user.getId(), user.getLogin(), user.getPassword(), user.getName(),user.getLastname(),user.getAge(), user.getUniversity(), user.getRole());
         return userService.insertUser(newUser);
     }
 

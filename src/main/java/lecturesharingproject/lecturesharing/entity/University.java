@@ -1,5 +1,5 @@
 package lecturesharingproject.lecturesharing.entity;
 
-public enum LessonName {
-    MATH, PHYSICS, LITERATURE
+public enum University {
+    NAU, KPI, KNU, NMU
 }

@@ -17,12 +17,16 @@ public class User {
     private int id;
     @Column(nullable = false, length = 16)
     private String login;
+    @Column(nullable = false, length = 15)
+    private String password;
     @Column(nullable = false, length = 16)
     private String name;
     @Column(nullable = false, length = 16)
     private String lastname;
     @Column(nullable = false, length = 2)
     private int age;
+    @Column(nullable = false, length=3)
+    private University university;
     @Column(nullable = false, length = 10)
     private String role;
 

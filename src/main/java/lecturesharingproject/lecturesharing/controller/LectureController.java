@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/lectures")
 @Slf4j
-//@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class LectureController {
 
     @Autowired
