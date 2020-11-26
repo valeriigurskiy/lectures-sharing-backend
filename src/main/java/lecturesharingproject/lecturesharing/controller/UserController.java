@@ -28,6 +28,10 @@ public class UserController {
         return userService.getUser(id);
     }
 
+    @GetMapping(value = "/{university}")
+    public User getUserByUniversity(@PathVariable String university){
+        return userService.getUniversity(university);
+    }
     @PostMapping
     public User insertUser(@RequestBody User user){
         User newUser = new User(user.getId(), user.getLogin(), user.getPassword(), user.getName(),user.getLastname(),user.getAge(), user.getUniversity(), user.getRole());
@@ -38,5 +42,6 @@ public class UserController {
     public void deleteUser(@PathVariable int id) {
         userService.removeUser(id);
     }
+
 
 }

@@ -33,4 +33,9 @@ public class UserService implements IUserService{
     public void removeUser(int id) {
         userDao.deleteById(id);
     }
+
+    @Override
+    public User getUniversity(String university) {
+        return userDao.findUserByUniversity(university);
+    }
 }

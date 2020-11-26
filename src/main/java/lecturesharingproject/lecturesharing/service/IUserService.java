@@ -17,4 +17,6 @@ public interface IUserService {
 
     void removeUser(int id);
 
+    User getUniversity(String university);
+
 }
