@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/lectures")
 @Slf4j
-//@CrossOrigin(origins = "http://localhost:4200")
 public class LectureController {
 
     @Autowired
@@ -31,6 +30,11 @@ public class LectureController {
         return lectureService.getLecture(id);
     }
 
+    //TODO method getLectureByUniversity
+    //    @GetMapping(value="/{university}")
+    //    public List<Lecture> getLectureByUniversity(@PathVariable String university){
+    //        return lectureService.get
+    //    }
     @PostMapping
     public Lecture insertLecture(@RequestBody Lecture lecture) {
         Lecture newLecture = new Lecture(lecture.getId(), lecture.getLessonName(), lecture.getLessonDescription(), lecture.getTitle());

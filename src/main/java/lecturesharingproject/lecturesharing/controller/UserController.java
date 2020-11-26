@@ -1,23 +1,26 @@
 package lecturesharingproject.lecturesharing.controller;
 
-import lecturesharingproject.lecturesharing.entity.Lecture;
 import lecturesharingproject.lecturesharing.entity.User;
 import lecturesharingproject.lecturesharing.service.UserService;
+import lecturesharingproject.lecturesharing.validator.UserValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/users")
 @Slf4j
-//@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired
     private UserService userService;
+    private UserValidator userValidator;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<User> getUsers() {
         return userService.getAllUsers();
@@ -29,12 +32,14 @@ public class UserController {
     }
 
     @GetMapping(value = "/{university}")
-    public User getUserByUniversity(@PathVariable String university){
+    public User getUserByUniversity(@PathVariable String university) {
         return userService.getUniversity(university);
     }
+
+    @CrossOrigin(origins = "*")
     @PostMapping
-    public User insertUser(@RequestBody User user){
-        User newUser = new User(user.getId(), user.getLogin(), user.getPassword(), user.getName(),user.getLastname(),user.getAge(), user.getUniversity(), user.getRole());
+    public User insertUser(@RequestBody User user) {
+        User newUser = new User(user.getId(), user.getLogin(), user.getPassword(), user.getName(), user.getLastname(), user.getAge(), user.getUniversity(), user.getRole());
         return userService.insertUser(newUser);
     }
 
@@ -43,5 +48,10 @@ public class UserController {
         userService.removeUser(id);
     }
 
-
+    //TODO Validator
+    @InitBinder
+    public void initBinder(WebDataBinder webDataBinder) {
+        webDataBinder.addValidators(this.userValidator);
+        webDataBinder.validate();
+    }
 }

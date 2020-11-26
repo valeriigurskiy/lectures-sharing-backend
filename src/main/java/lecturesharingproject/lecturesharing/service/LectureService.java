@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @Slf4j
 public class LectureService implements ILectureService {
@@ -28,6 +29,11 @@ public class LectureService implements ILectureService {
     public Lecture getLecture(int id) {
         return lectureDao.findById(id).orElseThrow(() -> new RuntimeException("Error"));
     }
+
+    //TODO Add method findLectureByUniversity
+//    public List<Lecture> getLectureByUniversity(String university){
+//        return lectureDao.findAll().
+//    }
 
     @Override
     public void removeLecture(int id) {
