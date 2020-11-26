@@ -23,5 +23,7 @@ public class User {
     private String lastname;
     @Column(nullable = false, length = 2)
     private int age;
+    @Column(nullable = false, length = 10)
+    private String role;
 
 }
