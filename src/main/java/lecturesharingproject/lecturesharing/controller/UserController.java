@@ -48,10 +48,10 @@ public class UserController {
         userService.removeUser(id);
     }
 
-    //TODO Validator
-    @InitBinder
-    public void initBinder(WebDataBinder webDataBinder) {
-        webDataBinder.addValidators(this.userValidator);
-        webDataBinder.validate();
-    }
+//    TODO Validator
+//    @InitBinder
+//    public void initBinder(WebDataBinder webDataBinder) {
+//        webDataBinder.addValidators(this.userValidator);
+//        webDataBinder.validate();
+//    }
 }

@@ -20,6 +20,7 @@ public class LectureController {
     @Autowired
     private LectureService lectureService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<Lecture> getLectures() {
         return lectureService.getAllLectures();
@@ -35,6 +36,7 @@ public class LectureController {
     //    public List<Lecture> getLectureByUniversity(@PathVariable String university){
     //        return lectureService.get
     //    }
+    @CrossOrigin(origins = "*")
     @PostMapping
     public Lecture insertLecture(@RequestBody Lecture lecture) {
         Lecture newLecture = new Lecture(lecture.getId(), lecture.getLessonName(), lecture.getLessonDescription(), lecture.getTitle());

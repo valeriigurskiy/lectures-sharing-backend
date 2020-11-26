@@ -40,5 +40,6 @@ public class UserValidator implements Validator {
             errors.rejectValue("university", "user.university.unknown-university", "You have only 4 universities for choosing.");
         }
 
+
     }
 }
