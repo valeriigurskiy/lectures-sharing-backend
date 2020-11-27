@@ -36,9 +36,9 @@ public class UserValidator implements Validator {
         if (user.getAge() < 48 || user.getAge() > 57) {
             errors.rejectValue("age", "user.age.invalid-age", "Your age must be number");
         }
-        if(!user.getUniversity().equals(University.NAU) || !user.getUniversity().equals(University.KPI) || !user.getUniversity().equals(University.KNU) || !user.getUniversity().equals(University.NMU)){
-            errors.rejectValue("university", "user.university.unknown-university", "You have only 4 universities for choosing.");
-        }
+//        if(!user.getUniversity().equals(University.NAU) || !user.getUniversity().equals(University.KPI) || !user.getUniversity().equals(University.KNU) || !user.getUniversity().equals(University.NMU)){
+//            errors.rejectValue("university", "user.university.unknown-university", "You have only 4 universities for choosing.");
+//        }
 
 
     }

@@ -1,9 +1,20 @@
 package lecturesharingproject.lecturesharing.entity;
 
-import javax.persistence.Column;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Entity
 public class Teacher {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column(nullable = false, length = 15)
     private String name;
     @Column(nullable = false, length = 15)
