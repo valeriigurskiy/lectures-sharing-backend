@@ -19,4 +19,6 @@ public class University {
     private String name;
     @Column(nullable = false, length = 32)
     private String address;
+    @Column(nullable = false, length = 256)
+    private String pictureURL;
 }

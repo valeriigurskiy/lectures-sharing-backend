@@ -1,14 +1,13 @@
 package lecturesharingproject.lecturesharing.controller;
 
-import lecturesharingproject.lecturesharing.entity.Lecture;
 import lecturesharingproject.lecturesharing.entity.University;
-import lecturesharingproject.lecturesharing.service.LectureService;
 import lecturesharingproject.lecturesharing.service.UniversityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/university")
@@ -24,15 +23,15 @@ public class UniversityController {
         return universityService.getAllUniversity();
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/{id}")
-    public University findUniversityById(@PathVariable int id) {
+    public Optional<University> findUniversityById(@PathVariable int id) {
         return universityService.getUniversity(id);
     }
 
-    @CrossOrigin(origins = "*")
     @PostMapping
     public University insertUniversity(@RequestBody University university) {
-        University newUniversity = new University(university.getId(), university.getName(), university.getAddress());
+        University newUniversity = new University(university.getId(), university.getName(), university.getAddress(), university.getPictureURL());
         return universityService.insertUniversity(newUniversity);
     }
 

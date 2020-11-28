@@ -26,11 +26,13 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping(value = "/{id}")
-    public User getUsersById(@PathVariable int id) {
-        return userService.getUser(id);
-    }
+//    @CrossOrigin(origins = "http://localhost:4200")
+//    @GetMapping(value = "/{id}")
+//    public User getUsersById(@PathVariable int id) {
+//        return userService.getUser(id);
+//    }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/{university}")
     public User getUserByUniversity(@PathVariable String university) {
         return userService.getUniversity(university);

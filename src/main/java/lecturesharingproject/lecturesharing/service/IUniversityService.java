@@ -3,6 +3,7 @@ import lecturesharingproject.lecturesharing.entity.University;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface IUniversityService {
@@ -11,7 +12,7 @@ public interface IUniversityService {
 
     List<University> getAllUniversity();
 
-    University getUniversity(int id);
+    Optional<University> getUniversity(int id);
 
     void removeUniversity(int id);
 
