@@ -38,4 +38,9 @@ public class UserService implements IUserService{
     public User getUniversity(String university) {
         return userDao.findUserByUniversity(university);
     }
+
+    @Override
+    public List<User> getUserByLogin(String login) {
+        return userDao.findUserByLogin(login);
+    }
 }

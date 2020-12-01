@@ -19,4 +19,5 @@ public interface IUserService {
 
     User getUniversity(String university);
 
+    List<User> getUserByLogin(String login);
 }

@@ -16,4 +16,6 @@ public interface IUniversityService {
 
     void removeUniversity(int id);
 
+
+
 }
