@@ -35,6 +35,7 @@ public class UserController {
         return userService.getUniversity(university);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/user/{login}")
     public List<User> getUserByLogin(@PathVariable String login){
         return userService.getUserByLogin(login);
