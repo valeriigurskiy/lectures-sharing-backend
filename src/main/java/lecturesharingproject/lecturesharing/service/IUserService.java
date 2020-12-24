@@ -1,6 +1,7 @@
 package lecturesharingproject.lecturesharing.service;
 
 import lecturesharingproject.lecturesharing.entity.Lecture;
+import lecturesharingproject.lecturesharing.entity.University;
 import lecturesharingproject.lecturesharing.entity.User;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +21,7 @@ public interface IUserService {
     User getUniversity(String university);
 
     List<User> getUserByLogin(String login);
+
+//    University getUserUniversity(String name);
+
 }

@@ -1,7 +1,9 @@
 package lecturesharingproject.lecturesharing.service;
 
 import lecturesharingproject.lecturesharing.dao.UniversityDao;
+import lecturesharingproject.lecturesharing.entity.Teacher;
 import lecturesharingproject.lecturesharing.entity.University;
+import lecturesharingproject.lecturesharing.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +34,20 @@ public class UniversityService implements IUniversityService {
     @Override
     public void removeUniversity(int id) {
         universityDao.deleteById(id);
+    }
+
+    @Override
+    public List<User> findUniversityUsers(String name) {
+        return universityDao.findUniversityUsers(name);
+    }
+
+    @Override
+    public University findUniversityByName(String name) {
+        return universityDao.findUniversityByName(name);
+    }
+
+    @Override
+    public List<Teacher> findUniversityTeachers(String name) {
+        return universityDao.findUniversityTeachers(name);
     }
 }

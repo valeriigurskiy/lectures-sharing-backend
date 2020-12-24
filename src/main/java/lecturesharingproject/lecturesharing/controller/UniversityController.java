@@ -1,6 +1,8 @@
 package lecturesharingproject.lecturesharing.controller;
 
+import lecturesharingproject.lecturesharing.entity.Teacher;
 import lecturesharingproject.lecturesharing.entity.University;
+import lecturesharingproject.lecturesharing.entity.User;
 import lecturesharingproject.lecturesharing.service.UniversityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,24 @@ public class UniversityController {
     public University insertUniversity(@RequestBody University university) {
         University newUniversity = new University(university.getId(), university.getName(), university.getAddress(), university.getPictureURL());
         return universityService.insertUniversity(newUniversity);
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/{name}/users")
+    public List<User> findUniversityUsers(@PathVariable String name){
+        return universityService.findUniversityUsers(name);
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/name/{name}")
+    public University findUniversityByName(@PathVariable String name){
+        return universityService.findUniversityByName(name);
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/{name}/teachers")
+    public List<Teacher> findUniversityTeachers(@PathVariable String name){
+        return universityService.findUniversityTeachers(name);
     }
 
     @DeleteMapping(value = "/{id}")

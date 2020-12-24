@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @Entity
-public class Teacher {
+public class Teacher{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +21,10 @@ public class Teacher {
     private String lastname;
     @Column(nullable = false, length = 16)
     private String login;
+    @Column(nullable = false, length = 32)
+    private String password;
+    @Column(nullable = false)
+    private int age;
     @Column(nullable = false, length = 20)
     private String university;
 

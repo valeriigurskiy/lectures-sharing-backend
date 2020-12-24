@@ -41,7 +41,6 @@ public class UserController {
         return userService.getUserByLogin(login);
     }
 
-
     @CrossOrigin(origins = "*")
     @PostMapping
     public User insertUser(@RequestBody User user) {
