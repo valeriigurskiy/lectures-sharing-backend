@@ -31,11 +31,11 @@ public class UniversityController {
         return universityService.getUniversity(id);
     }
 
-    @PostMapping
-    public University insertUniversity(@RequestBody University university) {
-        University newUniversity = new University(university.getId(), university.getName(), university.getAddress(), university.getPictureURL());
-        return universityService.insertUniversity(newUniversity);
-    }
+//    @PostMapping
+//    public University insertUniversity(@RequestBody University university) {
+//        University newUniversity = new University(university.getId(), university.getName(), university.getAddress(), university.getPictureURL(), '');
+//        return universityService.insertUniversity(newUniversity);
+//    }
 
     @CrossOrigin(origins = "*")
     @GetMapping(value = "/{name}/users")

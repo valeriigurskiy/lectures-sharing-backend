@@ -15,11 +15,11 @@ public class Lecture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 16)
-    private LessonName lessonName;
+    private String name;
     @Column(nullable = false, length = 32)
     private String title;
     @Column(nullable = false, length = 64)
-    private String lessonDescription;
+    private String description;
 }
 
 

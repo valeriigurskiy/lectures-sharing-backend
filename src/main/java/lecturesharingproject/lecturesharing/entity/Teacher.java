@@ -1,5 +1,6 @@
 package lecturesharingproject.lecturesharing.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @Entity
-public class Teacher{
+public class Teacher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +23,14 @@ public class Teacher{
     @Column(nullable = false, length = 16)
     private String login;
     @Column(nullable = false, length = 32)
+    @JsonIgnore
     private String password;
     @Column(nullable = false)
     private int age;
-    @Column(nullable = false, length = 20)
-    private String university;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
+    private University university;
 
 
 }
