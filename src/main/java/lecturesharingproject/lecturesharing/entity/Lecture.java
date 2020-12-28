@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,6 +21,14 @@ public class Lecture {
     private String title;
     @Column(nullable = false, length = 64)
     private String description;
+    @Column(nullable = false, length = 32)
+    private String university;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lecture_id")
+    private List<Comment> comments;
+
+    public Lecture(int id, String name, String description, String title, String university) {
+    }
 }
 
 

@@ -10,7 +10,7 @@ import java.util.List;
 public interface TeacherDao extends JpaRepository<Teacher, Integer> {
 
     @Query(value = "select t from Teacher t where t.university=:university")
-    Teacher findTeacherByUniversity(String university);
+    List<Teacher> findTeacherByUniversity(String university);
 
     @Query(value = "select t from Teacher t where t.login=:login")
     Teacher findTeacherByLogin(String login);

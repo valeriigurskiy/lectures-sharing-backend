@@ -1,6 +1,7 @@
 package lecturesharingproject.lecturesharing.service;
 
 import lecturesharingproject.lecturesharing.dao.UniversityDao;
+import lecturesharingproject.lecturesharing.entity.Lecture;
 import lecturesharingproject.lecturesharing.entity.Teacher;
 import lecturesharingproject.lecturesharing.entity.University;
 import lecturesharingproject.lecturesharing.entity.User;
@@ -49,5 +50,10 @@ public class UniversityService implements IUniversityService {
     @Override
     public List<Teacher> findUniversityTeachers(String name) {
         return universityDao.findUniversityTeachers(name);
+    }
+
+    @Override
+    public List<Lecture> findUniversityLectures(String university) {
+        return universityDao.findUniversityLectures(university);
     }
 }

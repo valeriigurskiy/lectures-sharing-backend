@@ -1,5 +1,6 @@
 package lecturesharingproject.lecturesharing.dao;
 
+import lecturesharingproject.lecturesharing.entity.Lecture;
 import lecturesharingproject.lecturesharing.entity.Teacher;
 import lecturesharingproject.lecturesharing.entity.University;
 import lecturesharingproject.lecturesharing.entity.User;
@@ -18,5 +19,8 @@ public interface UniversityDao extends JpaRepository<University, Integer> {
 
     @Query(value = "select u from University u where u.name=:name")
     University findUniversityByName(String name);
+
+    @Query(value = "select l from Lecture l where l.university=:university")
+    List<Lecture> findUniversityLectures(String university);
 
 }

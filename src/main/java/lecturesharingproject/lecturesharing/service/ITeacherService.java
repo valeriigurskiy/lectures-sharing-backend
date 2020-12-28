@@ -16,7 +16,7 @@ public interface ITeacherService {
 
     void removeTeacher(int id);
 
-    Teacher getUniversity(String university);
+    List<Teacher> getUniversity(String university);
 
     Teacher findTeacherByLogin(String login);
 

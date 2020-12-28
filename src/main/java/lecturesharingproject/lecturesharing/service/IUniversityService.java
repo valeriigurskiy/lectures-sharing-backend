@@ -1,4 +1,5 @@
 package lecturesharingproject.lecturesharing.service;
+import lecturesharingproject.lecturesharing.entity.Lecture;
 import lecturesharingproject.lecturesharing.entity.Teacher;
 import lecturesharingproject.lecturesharing.entity.University;
 import lecturesharingproject.lecturesharing.entity.User;
@@ -23,5 +24,7 @@ public interface IUniversityService {
     University findUniversityByName(String name);
 
     List<Teacher> findUniversityTeachers(String name);
+
+    List<Lecture> findUniversityLectures(String university);
 
 }

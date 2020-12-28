@@ -1,6 +1,8 @@
 package lecturesharingproject.lecturesharing.controller;
 
+import lecturesharingproject.lecturesharing.entity.Comment;
 import lecturesharingproject.lecturesharing.entity.Lecture;
+import lecturesharingproject.lecturesharing.service.CommentService;
 import lecturesharingproject.lecturesharing.service.LectureService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ public class LectureController {
 
     @Autowired
     private LectureService lectureService;
+    private CommentService commentService;
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
@@ -26,6 +29,7 @@ public class LectureController {
         return lectureService.getAllLectures();
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/{id}")
     public Lecture findLectureById(@PathVariable int id){
         return lectureService.getLecture(id);
@@ -39,7 +43,7 @@ public class LectureController {
     @CrossOrigin(origins = "*")
     @PostMapping
     public Lecture insertLecture(@RequestBody Lecture lecture) {
-        Lecture newLecture = new Lecture(lecture.getId(), lecture.getName(), lecture.getDescription(), lecture.getTitle());
+        Lecture newLecture = new Lecture(lecture.getId(), lecture.getName(), lecture.getDescription(), lecture.getTitle(), lecture.getUniversity());
         return lectureService.insertLecture(newLecture);
     }
 

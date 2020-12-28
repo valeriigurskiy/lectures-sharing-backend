@@ -37,7 +37,7 @@ public class TeacherService implements ITeacherService{
     }
 
     @Override
-    public Teacher getUniversity(String university) {
+    public List<Teacher> getUniversity(String university) {
         return teacherDao.findTeacherByUniversity(university);
     }
 

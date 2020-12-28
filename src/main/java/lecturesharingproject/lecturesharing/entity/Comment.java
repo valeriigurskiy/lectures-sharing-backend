@@ -11,25 +11,19 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @Entity
-public class Teacher {
-
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false, length = 15)
-    private String name;
-    @Column(nullable = false, length = 15)
-    private String lastname;
-    @Column(nullable = false, length = 16)
-    private String login;
-    @Column(nullable = false, length = 32)
-    @JsonIgnore
-    private String password;
-    @Column(nullable = false)
-    private int age;
+    @Column(nullable = false, length = 128)
+    private String content;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JsonIgnore
-    private University university;
+    private Lecture lecture;
 
+    public Comment(int id, String content, int id1) {
+    }
 
+    public Comment(int id, String content) {
+    }
 }

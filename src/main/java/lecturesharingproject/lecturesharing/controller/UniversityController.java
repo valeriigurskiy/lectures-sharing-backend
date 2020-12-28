@@ -1,5 +1,6 @@
 package lecturesharingproject.lecturesharing.controller;
 
+import lecturesharingproject.lecturesharing.entity.Lecture;
 import lecturesharingproject.lecturesharing.entity.Teacher;
 import lecturesharingproject.lecturesharing.entity.University;
 import lecturesharingproject.lecturesharing.entity.User;
@@ -53,6 +54,12 @@ public class UniversityController {
     @GetMapping(value = "/{name}/teachers")
     public List<Teacher> findUniversityTeachers(@PathVariable String name){
         return universityService.findUniversityTeachers(name);
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/{name}/lectures")
+    public List<Lecture> findUniversityLectures(@PathVariable String name){
+        return universityService.findUniversityLectures(name);
     }
 
     @DeleteMapping(value = "/{id}")

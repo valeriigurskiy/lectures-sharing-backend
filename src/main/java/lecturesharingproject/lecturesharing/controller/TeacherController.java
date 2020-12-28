@@ -28,10 +28,6 @@ public class TeacherController {
         return teacherService.findTeacherByLogin(login);
     }
 
-    @CrossOrigin(origins = "*")
-    @PostMapping
-
-
     @DeleteMapping(value = "/{id}")
     public void deleteUser(@PathVariable int id) {
         teacherService.removeTeacher(id);
