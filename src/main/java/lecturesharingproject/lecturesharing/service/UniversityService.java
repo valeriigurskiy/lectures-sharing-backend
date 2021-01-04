@@ -48,8 +48,8 @@ public class UniversityService implements IUniversityService {
     }
 
     @Override
-    public List<Teacher> findUniversityTeachers(String name) {
-        return universityDao.findUniversityTeachers(name);
+    public List<Teacher> findUniversityTeachers(String university) {
+        return universityDao.findUniversityTeachers(university);
     }
 
     @Override

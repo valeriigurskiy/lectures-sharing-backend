@@ -30,6 +30,7 @@ public class Teacher {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JsonIgnore
     private University university;
+    private String universityname;
 
 
 }

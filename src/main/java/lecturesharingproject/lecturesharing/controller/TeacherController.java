@@ -33,4 +33,10 @@ public class TeacherController {
         teacherService.removeTeacher(id);
     }
 
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/university/{university}")
+    public List<Teacher> getUniversity(@PathVariable String university){
+        return teacherService.getUniversity(university);
+    }
+
 }

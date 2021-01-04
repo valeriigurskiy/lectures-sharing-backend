@@ -23,11 +23,16 @@ public class Lecture {
     private String description;
     @Column(nullable = false, length = 32)
     private String university;
+    @Column(nullable = false, length = 32)
+    private String teacher;
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "lecture_id")
     private List<Comment> comments;
 
     public Lecture(int id, String name, String description, String title, String university) {
+    }
+
+    public Lecture(String name, String description, String title, String university) {
     }
 }
 

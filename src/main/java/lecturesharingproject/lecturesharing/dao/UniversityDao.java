@@ -14,8 +14,8 @@ public interface UniversityDao extends JpaRepository<University, Integer> {
     @Query(value = "select u from User u where u.name=:name")
     List<User> findUniversityUsers(String name);
 
-    @Query(value = "select t from Teacher t where t.university=:name")
-    List<Teacher> findUniversityTeachers(String name);
+    @Query(value = "select t from Teacher t where t.universityname=:university")
+    List<Teacher> findUniversityTeachers(String university);
 
     @Query(value = "select u from University u where u.name=:name")
     University findUniversityByName(String name);

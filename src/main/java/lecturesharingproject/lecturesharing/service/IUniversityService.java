@@ -23,7 +23,7 @@ public interface IUniversityService {
 
     University findUniversityByName(String name);
 
-    List<Teacher> findUniversityTeachers(String name);
+    List<Teacher> findUniversityTeachers(String university);
 
     List<Lecture> findUniversityLectures(String university);
 

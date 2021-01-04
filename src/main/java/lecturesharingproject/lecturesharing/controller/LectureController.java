@@ -43,7 +43,7 @@ public class LectureController {
     @CrossOrigin(origins = "*")
     @PostMapping
     public Lecture insertLecture(@RequestBody Lecture lecture) {
-        Lecture newLecture = new Lecture(lecture.getId(), lecture.getName(), lecture.getDescription(), lecture.getTitle(), lecture.getUniversity());
+        Lecture newLecture = new Lecture(lecture.getName(), lecture.getDescription(), lecture.getTitle(), lecture.getUniversity());
         return lectureService.insertLecture(newLecture);
     }
 
