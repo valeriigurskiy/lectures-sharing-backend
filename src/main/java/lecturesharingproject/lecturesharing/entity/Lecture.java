@@ -15,25 +15,18 @@ public class Lecture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false, length = 16)
+    @Column(nullable = false)
     private String name;
-    @Column(nullable = false, length = 32)
+    @Column(nullable = false)
     private String title;
-    @Column(nullable = false, length = 64)
+    @Column(nullable = false)
     private String description;
-    @Column(nullable = false, length = 32)
+    @Column(nullable = false)
     private String university;
-    @Column(nullable = false, length = 32)
+    @Column(nullable = false)
     private String teacher;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "lecture_id")
-    private List<Comment> comments;
-
-    public Lecture(int id, String name, String description, String title, String university) {
-    }
-
-    public Lecture(String name, String description, String title, String university) {
-    }
+    @Column(nullable = false)
+    private String user;
 }
 
 

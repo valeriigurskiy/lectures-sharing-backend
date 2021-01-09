@@ -30,6 +30,11 @@ public class LectureService implements ILectureService {
         return lectureDao.findById(id).orElseThrow(() -> new RuntimeException("Error"));
     }
 
+    @Override
+    public List<Lecture> getTeacherLectures(String teacher) {
+        return lectureDao.findTeacherLectures(teacher);
+    }
+
     //TODO Add method findLectureByUniversity
 //    public List<Lecture> getLectureByUniversity(String university){
 //        return lectureDao.findAll().

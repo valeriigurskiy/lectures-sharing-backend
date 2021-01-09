@@ -23,7 +23,6 @@ public class Teacher {
     @Column(nullable = false, length = 16)
     private String login;
     @Column(nullable = false, length = 32)
-    @JsonIgnore
     private String password;
     @Column(nullable = false)
     private int age;
@@ -31,6 +30,4 @@ public class Teacher {
     @JsonIgnore
     private University university;
     private String universityname;
-
-
 }

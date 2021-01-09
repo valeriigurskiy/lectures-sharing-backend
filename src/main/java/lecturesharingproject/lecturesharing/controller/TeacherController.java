@@ -16,9 +16,9 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping
-    public List<Teacher> getUsers() {
+    public List<Teacher> getTeachers() {
         return teacherService.getAllTeachers();
     }
 
