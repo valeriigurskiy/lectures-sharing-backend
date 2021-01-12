@@ -27,6 +27,9 @@ public class Lecture {
     private String teacher;
     @Column(nullable = false)
     private String user;
+    @Column()
+    private int rating;
+    private boolean checked;
 }
 
 

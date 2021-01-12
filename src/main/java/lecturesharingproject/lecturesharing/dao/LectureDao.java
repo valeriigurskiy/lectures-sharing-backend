@@ -12,4 +12,10 @@ public interface LectureDao extends JpaRepository<Lecture, Integer> {
     @Query(value = "select l from Lecture l where l.teacher=:teacher")
     List<Lecture> findTeacherLectures(String teacher);
 
+    @Query(value = "select l from Lecture l where l.teacher=?1 and l.checked=true")
+    List<Lecture> findTeacherCheckedLecture(String teacher);
+
+    @Query(value = "select l from Lecture l where l.teacher=?1 and l.checked=false")
+    List<Lecture> findTeacherUncheckedLecture(String teacher);
+
 }

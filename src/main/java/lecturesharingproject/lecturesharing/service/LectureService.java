@@ -35,6 +35,16 @@ public class LectureService implements ILectureService {
         return lectureDao.findTeacherLectures(teacher);
     }
 
+    @Override
+    public List<Lecture> findTeacherCheckedLecture(String teacher) {
+        return lectureDao.findTeacherCheckedLecture(teacher);
+    }
+
+    @Override
+    public List<Lecture> findTeacherUncheckedLecture(String teacher) {
+        return lectureDao.findTeacherUncheckedLecture(teacher);
+    }
+
     //TODO Add method findLectureByUniversity
 //    public List<Lecture> getLectureByUniversity(String university){
 //        return lectureDao.findAll().

@@ -18,4 +18,7 @@ public interface ILectureService {
 
     List<Lecture> getTeacherLectures(String teacher);
 
+    List<Lecture> findTeacherCheckedLecture(String teacher);
+    List<Lecture> findTeacherUncheckedLecture(String teacher);
+
 }

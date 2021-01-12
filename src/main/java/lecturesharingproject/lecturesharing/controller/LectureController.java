@@ -37,7 +37,7 @@ public class LectureController {
     @CrossOrigin(origins = "*")
     @PostMapping
     public Lecture insertLecture(@RequestBody Lecture lecture) {
-        Lecture newLecture = new Lecture(lecture.getId(), lecture.getName(), lecture.getTitle(), lecture.getDescription(), lecture.getUniversity(), lecture.getTeacher(), lecture.getUser());
+        Lecture newLecture = new Lecture(lecture.getId(), lecture.getName(), lecture.getTitle(), lecture.getDescription(), lecture.getUniversity(), lecture.getTeacher(), lecture.getUser(), 0, false);
         return lectureService.insertLecture(newLecture);
     }
 
@@ -45,6 +45,27 @@ public class LectureController {
     @GetMapping(value = "/teacher/{teacher}")
     public List<Lecture> getTeacherLecture(@PathVariable String teacher){
         return lectureService.getTeacherLectures(teacher);
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/{id}/rate/{rate}")
+    public Lecture updateRate(@PathVariable int id, @PathVariable int rate){
+        Lecture lecture = lectureService.getLecture(id);
+        Lecture newLecture = new Lecture(lecture.getId(),lecture.getName(), lecture.getTitle(), lecture.getDescription(), lecture.getUniversity(), lecture.getTeacher(), lecture.getUser(), rate, true);
+        lectureService.insertLecture(newLecture);
+        return newLecture;
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/teacher/{teacher}/checked")
+    public List<Lecture> teacherCheckedLectures(@PathVariable String teacher){
+        return lectureService.findTeacherCheckedLecture(teacher);
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/teacher/{teacher}/unchecked")
+    public List<Lecture> teacherUncheckedLectures(@PathVariable String teacher){
+        return lectureService.findTeacherUncheckedLecture(teacher);
     }
 
     @DeleteMapping(value = "/{id}")
