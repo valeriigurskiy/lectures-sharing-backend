@@ -1,12 +1,21 @@
 package lecturesharingproject.lecturesharing.dao;
 
+import lecturesharingproject.lecturesharing.entity.University;
 import lecturesharingproject.lecturesharing.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 public interface UserDao extends JpaRepository<User, Integer> {
 
-    @Query("SELECT u FROM User u WHERE u.university =: university")
+    @Query(value = "select u from User u where u.university=:university")
     User findUserByUniversity(String university);
+
+    @Query(value = "select u from User u where u.login=:login")
+    List<User> findUserByLogin(String login);
+
+    @Query(value = "select u from University u where u.name=:name")
+    University getUserUniversity(String name);
 
 }

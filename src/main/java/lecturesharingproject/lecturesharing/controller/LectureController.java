@@ -6,10 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.List;
 
 @RestController
@@ -20,12 +16,14 @@ public class LectureController {
     @Autowired
     private LectureService lectureService;
 
+
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<Lecture> getLectures() {
         return lectureService.getAllLectures();
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/{id}")
     public Lecture findLectureById(@PathVariable int id){
         return lectureService.getLecture(id);
@@ -39,8 +37,35 @@ public class LectureController {
     @CrossOrigin(origins = "*")
     @PostMapping
     public Lecture insertLecture(@RequestBody Lecture lecture) {
-        Lecture newLecture = new Lecture(lecture.getId(), lecture.getLessonName(), lecture.getLessonDescription(), lecture.getTitle());
+        Lecture newLecture = new Lecture(lecture.getId(), lecture.getName(), lecture.getTitle(), lecture.getDescription(), lecture.getUniversity(), lecture.getTeacher(), lecture.getUser(), 0, false);
         return lectureService.insertLecture(newLecture);
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/teacher/{teacher}")
+    public List<Lecture> getTeacherLecture(@PathVariable String teacher){
+        return lectureService.getTeacherLectures(teacher);
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/{id}/rate/{rate}")
+    public Lecture updateRate(@PathVariable int id, @PathVariable int rate){
+        Lecture lecture = lectureService.getLecture(id);
+        Lecture newLecture = new Lecture(lecture.getId(),lecture.getName(), lecture.getTitle(), lecture.getDescription(), lecture.getUniversity(), lecture.getTeacher(), lecture.getUser(), rate, true);
+        lectureService.insertLecture(newLecture);
+        return newLecture;
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/teacher/{teacher}/checked")
+    public List<Lecture> teacherCheckedLectures(@PathVariable String teacher){
+        return lectureService.findTeacherCheckedLecture(teacher);
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/teacher/{teacher}/unchecked")
+    public List<Lecture> teacherUncheckedLectures(@PathVariable String teacher){
+        return lectureService.findTeacherUncheckedLecture(teacher);
     }
 
     @DeleteMapping(value = "/{id}")

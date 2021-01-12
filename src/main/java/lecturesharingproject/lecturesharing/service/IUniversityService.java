@@ -1,5 +1,8 @@
 package lecturesharingproject.lecturesharing.service;
+import lecturesharingproject.lecturesharing.entity.Lecture;
+import lecturesharingproject.lecturesharing.entity.Teacher;
 import lecturesharingproject.lecturesharing.entity.University;
+import lecturesharingproject.lecturesharing.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,5 +18,13 @@ public interface IUniversityService {
     Optional<University> getUniversity(int id);
 
     void removeUniversity(int id);
+
+    List<User> findUniversityUsers(String name);
+
+    University findUniversityByName(String name);
+
+    List<Teacher> findUniversityTeachers(String university);
+
+    List<Lecture> findUniversityLectures(String university);
 
 }

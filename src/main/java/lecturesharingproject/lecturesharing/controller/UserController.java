@@ -5,11 +5,9 @@ import lecturesharingproject.lecturesharing.service.UserService;
 import lecturesharingproject.lecturesharing.validator.UserValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Locale;
 
 @RestController
 @RequestMapping("/users")
@@ -32,10 +30,15 @@ public class UserController {
 //        return userService.getUser(id);
 //    }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/{university}")
     public User getUserByUniversity(@PathVariable String university) {
         return userService.getUniversity(university);
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/user/{login}")
+    public List<User> getUserByLogin(@PathVariable String login){
+        return userService.getUserByLogin(login);
     }
 
     @CrossOrigin(origins = "*")

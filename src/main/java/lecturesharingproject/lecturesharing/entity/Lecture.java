@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,12 +15,21 @@ public class Lecture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false, length = 16)
-    private LessonName lessonName;
-    @Column(nullable = false, length = 32)
+    @Column(nullable = false)
+    private String name;
+    @Column(nullable = false)
     private String title;
-    @Column(nullable = false, length = 64)
-    private String lessonDescription;
+    @Column(nullable = false)
+    private String description;
+    @Column(nullable = false)
+    private String university;
+    @Column(nullable = false)
+    private String teacher;
+    @Column(nullable = false)
+    private String user;
+    @Column()
+    private int rating;
+    private boolean checked;
 }
 
 
