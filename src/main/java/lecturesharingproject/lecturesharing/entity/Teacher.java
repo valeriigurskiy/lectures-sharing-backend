@@ -26,8 +26,8 @@ public class Teacher {
     private String password;
     @Column(nullable = false)
     private int age;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JsonIgnore
-    private University university;
+    @Column(nullable = false)
+    private String university;
+    @Column()
     private String universityname;
 }

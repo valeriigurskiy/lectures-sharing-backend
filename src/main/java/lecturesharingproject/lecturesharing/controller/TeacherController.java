@@ -23,6 +23,12 @@ public class TeacherController {
     }
 
     @CrossOrigin(origins = "*")
+    @PostMapping
+    public Teacher addTeacher(@RequestBody Teacher teacher) {
+        return teacherService.insertTeacher(teacher);
+    }
+
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/teacher/{login}")
     public Teacher getUserByLogin(@PathVariable String login){
         return teacherService.findTeacherByLogin(login);
